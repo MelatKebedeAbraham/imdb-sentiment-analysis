@@ -176,7 +176,7 @@ Below are screenshots showing the Streamlit app before and after making a sentim
 
 #### After Prediction
 
-![Prediction Result](Images/streamlit_result.png)
+![Prediction Result](Images/streamlit_result.png) 
 
 
 ## Model Details
