@@ -20,8 +20,8 @@ This project implements a sentiment analysis pipeline using a **Logistic Regress
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/imdb-sentiment.git
-cd imdb-sentiment
+git clone https://github.com/MelatKebedeAbraham/imdb-sentiment-analysis.git
+cd imdb-sentiment-analysis
 ```
 
 ### 2. Install dependencies
@@ -74,7 +74,7 @@ python app.py
 ## API will be accessible at:
 
 - Local: `http://127.0.0.1:5000`
-- LAN: `http://192.168.x.x:5000` (if accessible)
+- LAN: `http://192.168.1.4:5000` (if accessible)
 
 Ensure `model.pkl` and `vectorizer.pkl` are in the same directory.
 
@@ -125,7 +125,7 @@ Make sure `test_api.py` contains your POST request to the local server and handl
 
 ```bash
 {
-  "review": "I hated this boring film."
+  "review": "I loved this movie!"
 }
 ```
 
@@ -140,22 +140,44 @@ Make sure `test_api.py` contains your POST request to the local server and handl
 - Flask dev server is not for production, use Gunicorn or similar if needed.
 - Make sure port 5000 is allowed through firewalls for LAN access.
 
-## Project Structure
 
-```text
-.
-├── app.py               # Flask API for sentiment predictions
-├── train.py             # Script to preprocess data, train, and save model
-├── predict.py           # Command-line prediction script
-├── test_api.py          # Script to test the Flask API endpoint
-├── model.pkl            # Trained Logistic Regression model
-├── vectorizer.pkl       # Fitted TF-IDF vectorizer
-├── requirements.txt     # Python dependencies
-├── README.md            # Project documentation
-└── Dataset/
-    └── imdb_balanced_5000.csv  # Subset of IMDb dataset used for training
+## Streamlit App (Alternative to Flask API)
 
+In addition to the Flask API, this project includes a simple interactive **Streamlit web app** for making sentiment predictions directly in the browser.
+
+### How to Run
+
+Make sure `model.pkl` and `vectorizer.pkl` are in the same directory as the Streamlit script (e.g. `streamlit_app.py`), then run:
+
+```bash
+streamlit run streamlit_app.py
 ```
+### Features
+
+- Text area input for custom movie reviews
+- Predicts sentiment: **positive** or **negative**
+- Displays confidence score (model probability)
+- Minimal UI for quick exploration
+
+### Local Access
+
+Once running, open `http://localhost:8501` in your browser.
+
+This Streamlit interface is great for demos and non-technical users who want to interact with the model visually. It works entirely offline and is easy to extend with charts or model explanations.
+
+
+### Streamlit Demo
+
+Below are screenshots showing the Streamlit app before and after making a sentiment prediction:
+
+#### Initial View
+
+![Initial Streamlit App](Images/streamlit_initial.png)
+
+#### After Prediction
+
+![Prediction Result](Images/streamlit_result.png)
+
 
 ## Model Details
 
